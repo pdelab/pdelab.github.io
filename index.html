@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title>Stochastic Descent Algorithms</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="shortcut icon" type="image/ico" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="design2.css">
+<link rel="stylesheet" type="text/css" href="atelier-lakeside-light.css">
+
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</head>
+<body>
+<a name="top"></a>
+
+<div id="grad1" style="text-align:center;">
+<h1>Stochastic Descent Algorithms</h1>
+  <br>
+
+  <table style="width:52.35em;" align="center">
+    <tr>
+      <th><p style='text-align: right'>Code avaible on &nbsp; </p></th>
+<th><section>
+<a href="https://github.com/arthbous/StochasticDescent"><button id="js-trigger-overlay" type="button"> Github</button></a>
+</section></th>
+    </tr>
+  </table>
+
+  <!-- <div id="textbox">
+    <p class="alignright">Text on the left.</p>
+    <p class="alignleft">Text on the right.</p>
+  </div> -->
+
+</div>
+
+<div id="container">
+<!--<div style="text-align: center;"> <img src="fig1.png" border='5'><br></div>-->
+
+
+<br>
+
+<ol>
+  <li> <a href="#intro">Introduction</a> </li>
+  <li> <a href="#GD">Gradient Descent with noise</a> </li>
+  <li> <a href="#M1">Momentum 1 (Langevin)</a> </li>
+  <li> <a href="#M2"> Momentum 2</a> </li>
+  <li> <a href="#about"> About </a> </li>
+  <li> <a href="#ref"> References </a> </li>
+</ol>
+
+<h3 id="intro">Introduction</h3>
+
+<p>The goal of this repository is to find the global minimum of a non-convex function</p>
+<p align="center">
+$$\min_{x} F(x).$$</p>
+<p>To attain a global minimum we add a noise to three different descent algorithms.
+  This is called simulated annealing. For each algorithms in order to converge to global mimum we need
+  <p align="center">$$ \sigma_n \to 0, \Delta t_n \to 0, \Delta W^n \sim N(0,1).$$</p>
+
+<h3 id="GD">Gradient Descent with noise</h3>
+<p align="center">$$
+X^{n+1} = X^n - \frac{1}{\gamma} \nabla_X F(X^n) \Delta t_n + \frac{\sigma_n}{\gamma} \Delta W^n\
+$$</p>
+<div id="doccode">
+<mark><i>GradientNoise(Func,Jac,gamma,amp,tol,x_init,itmax,K,it_init=None,
+bounds=None,DirDoF=None)</i> </mark><br>
+<b>Parameters </b>
+<div id="doccode">
+<b>Func </b>: callable<br>
+&nbsp; &nbsp;Function to minimize<br>
+<b>Jac </b> : callable<br>
+&nbsp; &nbsp;Jacobian of the function to minimize<br>
+<b>gamma </b>: float<br>
+&nbsp; &nbsp;Real number that divide the gradient<br>
+<b>amp </b>:  float<br>
+&nbsp; &nbsp;Real number, amplitude of the noise<br>
+<b>tol </b>:  flaot<br>
+  &nbsp; &nbsp;Real number, tolerance for the convergence<br>
+<b> x_init </b> : ndarray<br>
+&nbsp; &nbsp; Initial guess of x<br>
+<b>itmax </b> : int<br>
+&nbsp; &nbsp; maximum number of iteration<br>
+<b>K  </b>: int<br>
+&nbsp; &nbsp;number of times to repeat the algorithm<br>
+<b>it_init </b>: int, optional<br>
+&nbsp; &nbsp;iteration number where to start the algorithm<br>
+<b>bounds </b>: sequence<br>
+  &nbsp; &nbsp;  dimension 2 where each value of x has to be between<br>
+<b>DirDoF </b>: list of tuple<br>
+&nbsp; &nbsp; degree(s) of freedom where x will not change<br>
+</div>
+<b>Returns </b>
+<div id="doccode">
+<b> x  </b>: ndarray<br>
+&nbsp; &nbsp; value of x where Func(x) is the minimum, same size of x_init
+<b> min_Func </b>: flaot<br>
+&nbsp; &nbsp;  value of the minimum of Func(x)<br>
+<b> min_it </b>: int<br>
+&nbsp; &nbsp; iteration number where the algorithm stopped
+</div>
+</div>
+<br>
+Example:
+<pre class="prettyprint">
+import numpy as np
+from StoDescLib import *
+
+def f(xt):
+    return 0.5*xt[0]**2.0+0.5*(1.0-np.cos(2*xt[0]))+xt[1]**2.0
+def df(xt):
+    return np.array([2.0*0.5*xt[0]+2.0*0.5*np.sin(2*xt[0]), 2.0*xt[1]])
+
+K=10
+itmax=1000
+tol=1E-5
+gamma = 1.0
+amp = 1.0
+x0 = np.array([3.0,-5.0])
+v0 = np.copy(x0)
+z0 = np.copy(x0)
+
+[x1,min1,it1] = GradientNoise(f,df,gamma,amp,tol,x0,itmax,K)
+</pre>
+
+<h3 id="M1">Momentum 1 (Langevin)</h3>
+<p align="center">$$
+\begin{aligned}
+V^{n+1} &=  (1-\lambda_1 \Delta t_n)V^n - \frac{1}{\gamma} \nabla_X F(X^n) \Delta t_n + \frac{\sigma_n}{\gamma} \Delta W^n\\
+X^{n+1} &= X^n + V^{n+1}\Delta t_n \\
+\end{aligned} $$</p>
+
+
+<div id="doccode">
+<mark><i>Momentum1(Func,Jac,lda,gamma,amp,tol,x_init,v_init,itmax,K,it_init=None,bounds=None,DirDoF=None)</i> </mark><br>
+<b>Parameters </b>
+<div id="doccode">
+<b>Func </b>: callable<br>
+&nbsp; &nbsp;Function to minimize<br>
+<b>Jac </b> : callable<br>
+&nbsp; &nbsp;Jacobian of the function to minimize<br>
+<b>lda </b>: float<br>
+  &nbsp; &nbsp; value is  between 0 and 1<br>
+<b>gamma </b>: float<br>
+&nbsp; &nbsp;Real number that divide the gradient<br>
+<b>amp </b>:  float<br>
+&nbsp; &nbsp;Real number, amplitude of the noise<br>
+<b>tol </b>:  flaot<br>
+  &nbsp; &nbsp;Real number, tolerance for the convergence<br>
+<b> x_init </b> : ndarray<br>
+&nbsp; &nbsp; Initial guess of x<br>
+<b>v_init </b> : ndarray<br>
+&nbsp; &nbsp; Initial guess for Momentum 1 (velocity), same shape as x0<br>
+<b>itmax </b> : int<br>
+&nbsp; &nbsp; maximum number of iteration<br>
+<b>K  </b>: int<br>
+&nbsp; &nbsp;number of times to repeat the algorithm<br>
+<b>it_init </b>: int, optional<br>
+&nbsp; &nbsp;iteration number where to start the algorithm<br>
+<b>bounds </b>: sequence<br>
+  &nbsp; &nbsp;  dimension 2 where each value of x has to be between<br>
+<b>DirDoF </b>: list of tuple<br>
+&nbsp; &nbsp; degree(s) of freedom where x will not change<br>
+</div>
+<b>Returns </b>
+<div id="doccode">
+<b> x  </b>: ndarray<br>
+&nbsp; &nbsp; value of x where Func(x) is the minimum, same size of x_init
+<b> v  </b>: ndarray<br>
+&nbsp; &nbsp; value of Momentum 1 (velocity)<br>
+<b> min_Func </b>: flaot<br>
+&nbsp; &nbsp;  value of the minimum of Func(x)<br>
+<b> min_it </b>: int<br>
+&nbsp; &nbsp; iteration number where the algorithm stopped
+</div>
+</div>
+
+<pre class="prettyprint">
+import numpy as np
+from StoDescLib import *
+
+def f(xt):
+    return 0.5*xt[0]**2.0+0.5*(1.0-np.cos(2*xt[0]))+xt[1]**2.0
+def df(xt):
+    return np.array([2.0*0.5*xt[0]+2.0*0.5*np.sin(2*xt[0]), 2.0*xt[1]])
+
+K=10
+itmax=1000
+tol=1E-5
+lda=0.1
+gamma = 1.0
+amp = 1.0
+x0 = np.array([3.0,-5.0])
+v0 = np.copy(x0)
+z0 = np.copy(x0)
+
+[x,v,min,it] = Momentum1(f,df,lda,gamma,amp,tol,x0,v0,itmax,K)
+</pre>
+
+<h3 id="M2"> Momentum 2</h3>
+<p align="center">$$
+\begin{aligned}
+z^{n+1} & = -\lambda_2 z^n\Delta t +\lambda_3 V^n d t + \frac{\sigma_n}{\gamma} \Delta W^n\\
+V^{n+1} &=  (1-\lambda_1 \Delta t_n)V^n - \frac{1}{\gamma} \nabla_X F(X^n) \Delta t_n - z^{n+1}\Delta t_n.\\
+X^{n+1} &= X^n + V^{n+1}\Delta t_n \\
+\end{aligned}
+$$</p>
+<div id="doccode">
+<mark><i>Momentum2(Func,Jac,lda,gamma,amp,tol,x_init,v_init,z_init,itmax,K,it_init=None,bounds=None,DirDoF=None)</i> </mark><br>
+<b>Parameters </b>
+<div id="doccode">
+<b>Func </b>: callable<br>
+&nbsp; &nbsp;Function to minimize<br>
+<b>Jac </b> : callable<br>
+&nbsp; &nbsp;Jacobian of the function to minimize<br>
+<b>lda </b>: ndarray<br>
+  &nbsp; &nbsp;vector of dimension 3 where each value is  between 0 and 1<br>
+<b>gamma </b>: float<br>
+&nbsp; &nbsp;Real number that divide the gradient<br>
+<b>amp </b>:  float<br>
+&nbsp; &nbsp;Real number, amplitude of the noise<br>
+<b>tol </b>:  flaot<br>
+  &nbsp; &nbsp;Real number, tolerance for the convergence<br>
+<b> x_init </b> : ndarray<br>
+&nbsp; &nbsp; Initial guess of x<br>
+<b>v_init </b> : ndarray<br>
+&nbsp; &nbsp; Initial guess for Momentum 1 (velocity), same shape as x0<br>
+<b>z_init</b> : ndarray<br>
+  &nbsp; &nbsp; Initial guess for Momentum 2, same shape as x0<br>
+<b>itmax </b> : int<br>
+&nbsp; &nbsp; maximum number of iteration<br>
+<b>K  </b>: int<br>
+&nbsp; &nbsp;number of times to repeat the algorithm<br>
+<b>it_init </b>: int, optional<br>
+&nbsp; &nbsp;iteration number where to start the algorithm<br>
+<b>bounds </b>: sequence<br>
+  &nbsp; &nbsp;  dimension 2 where each value of x has to be between<br>
+<b>DirDoF </b>: list of tuple<br>
+&nbsp; &nbsp; degree(s) of freedom where x will not change<br>
+</div>
+<b>Returns </b>
+<div id="doccode">
+<b> x  </b>: ndarray<br>
+&nbsp; &nbsp; value of x where Func(x) is the minimum, same size of x_init
+<b> v  </b>: ndarray<br>
+&nbsp; &nbsp; value of Momentum 1 (velocity)<br>
+<b> z </b>: ndarray<br>
+&nbsp; &nbsp; value ofMomentum 2<br>
+<b> min_Func </b>: flaot<br>
+&nbsp; &nbsp;  value of the minimum of Func(x)<br>
+<b> min_it </b>: int<br>
+&nbsp; &nbsp; iteration number where the algorithm stopped
+</div>
+</div>
+
+
+<pre class="prettyprint">
+import numpy as np
+from StoDescLib import *
+
+def f(xt):
+    return 0.5*xt[0]**2.0+0.5*(1.0-np.cos(2*xt[0]))+xt[1]**2.0
+def df(xt):
+    return np.array([2.0*0.5*xt[0]+2.0*0.5*np.sin(2*xt[0]), 2.0*xt[1]])
+
+K=10
+itmax=1000
+tol=1E-5
+lda=[0.1,0.1,0.1]
+gamma = 1.0
+amp = 1.0
+x0 = np.array([3.0,-5.0])
+v0 = np.copy(x0)
+z0 = np.copy(x0)
+
+[x,v,z,min,it] = Momentum2(f,df,lda,gamma,amp,tol,x0,v0,z0,itmax,K)
+</pre>
+<br>
+<h3 id="about"> About </h3>
+The authors are Arthur Bousquet, Qipin Chen, Shuonan Wu.
+
+<h3 id="ref"> References </h3>
+<ul>
+<li> <a href="https://dspace.mit.edu/bitstream/handle/1721.1/3174/P-1937-20940740.pdf?sequence=1" >Recursive Stochastic Algorithms for
+Global Optimization in R^d </a></li>
+<li> <a href="http://epubs.siam.org/doi/abs/10.1137/0325042" >Diffusion For Global Optimization in R**</a></li>
+<li> <a href="https://www.sciencedirect.com/science/article/pii/S0304414902001503" >Ergodicity for SDEs and approximations: locally Lipschitz vector fields and degenerate noise</a></li>
+</ul>
+</p>
+
+
+<br>
+<center><a href="#top">Back to Top</a></center>
+<hr>
+</div>
+
+</body></html>

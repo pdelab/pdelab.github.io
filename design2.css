@@ -1,0 +1,119 @@
+a {
+	/* color : #d7d7d7;*/
+color : #336699;
+	text-decoration: none;
+	border-bottom: 0px dotted #336699;
+}
+a:hover {
+	/* background: #d7d7d7;
+	color: #363532;*/
+	/* color: #FFF;*/
+/* color : #4080bf;*/
+	border-bottom: 1.2px solid #4080bf;
+}
+BODY
+   {
+   /* font-family: Nimbus Sans L, Arial, FreeSans ; */
+   /* font-family: "PT Sans", Arial, Helvetica, sans-serif; */
+/* font-family : 'Oxygen', Verdana, Arial, Sans-serif; */
+font-family: 'Lato', sans-serif;
+   color : #03030;
+	 font-size: 100%;
+background-color : #FFF;
+	 LINE-HEIGHT: 1.3em;
+   margin: 10px auto;
+   }
+a img {
+	border-bottom:none
+	}
+h2, h1 {
+	color: #03030;
+	}
+#container {
+	width: 52.25em;
+	margin: auto;
+}
+#top {
+text-align: center; }
+#top a {
+    color:  #336699;
+    border-bottom: 0px dotted #336699;
+    font-weight: bold;
+    }
+#top a:hover {
+	color: #4080bf;
+    border-bottom: 0px solid #4080bf;
+    }
+
+hr {
+  border-color: #000;
+}
+
+.column {
+    float: left;
+    width: 50%;
+   padding: 10px 10px 10px 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#grad1 {
+    padding: 5em;
+    background: #3e4468; /* For browsers that do not support gradients */
+    background: linear-gradient(-90deg, #4485c8, #3e4468); /* Standard syntax (must be last) */
+    vertical-align: middle;
+    color: #FFF;
+		-moz-border-radius: 5px;
+		-webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+		-moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+}
+#grad1 h1{
+color: #FFF;
+font-size: 3em;
+}
+
+
+#doccode {
+	padding-left:2em;
+}
+
+#doccode mark {
+    background-color: #b8d3ef;
+		padding: 5px;
+		margin-bottom: 5px;
+		display:inline-block;
+}
+
+section button {
+  margin: 0 auto;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  display: block;
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  border-radius: 6px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+	float: left;
+
+}
+
+section button:hover {
+  background-color: rgba(255,255,255,0.3);
+	color : #232323;
+	cursor:pointer;
+}
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
