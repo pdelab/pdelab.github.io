@@ -16,8 +16,8 @@ BODY
    /* font-family: Nimbus Sans L, Arial, FreeSans ; */
    /* font-family: "PT Sans", Arial, Helvetica, sans-serif; */
 /* font-family : 'Oxygen', Verdana, Arial, Sans-serif; */
-font-family: 'Roboto', sans-serif;
-   color : #03030;
+font-family: 'Raleway', sans-serif;
+   color : #494949;
 	 font-size: 100%;
 background-color : #FFF;
 	 LINE-HEIGHT: 1.3em;
@@ -30,7 +30,7 @@ h2, h1 {
 	color: #03030;
 	}
 #container {
-	width: 52.25em;
+	width: 50em;
 	margin: auto;
 }
 #top {
@@ -62,18 +62,23 @@ hr {
 }
 
 #grad1 {
-    padding: 5em;
+    padding: 1rem;
     background: #3e4468; /* For browsers that do not support gradients */
-    background: linear-gradient(-90deg, #4485c8, #3e4468); /* Standard syntax (must be last) */
+    background: linear-gradient(-90deg, #323c91, #655159); /* Standard syntax (must be last) */
     vertical-align: middle;
     color: #FFF;
 		-moz-border-radius: 5px;
 		-webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
 		-moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+		width: 100%;
+		margin:auto;
+
 }
 #grad1 h1{
-color: #FFF;
+margin-top: 1rem;
+margin-bottom : 1rem;
 font-size: 3em;
+text-align: center;
 }
 
 
@@ -93,21 +98,22 @@ section button {
   font-size: 1.2rem;
   padding: 0.5rem 1.5rem;
   display: block;
-  background-color: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.5);
-  color: #FFF;
+	background-color: rgba(255,255,255,0.2);
+	color : #FFF;
+  border: 1px solid rgba(48,48,48,0.6);
   -webkit-border-radius: 3px;
   border-radius: 6px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-	float: left;
+	float: center;
 
 }
 
 section button:hover {
   background-color: rgba(255,255,255,0.3);
-	color : #232323;
+	/* background-color: rgba(50,60,145,0.8); */
+	color : #000;
 	cursor:pointer;
 }
 
