@@ -1,15 +1,15 @@
 a {
 	/* color : #d7d7d7;*/
-color : #336699;
+color : #323c91;
 	text-decoration: none;
-	border-bottom: 0px dotted #336699;
+	border-bottom: 0px dotted #323c91;
 }
 a:hover {
 	/* background: #d7d7d7;
 	color: #363532;*/
 	/* color: #FFF;*/
 /* color : #4080bf;*/
-	border-bottom: 1.2px solid #4080bf;
+	border-bottom: 1.2px solid #323c91;
 }
 BODY
    {
@@ -17,11 +17,11 @@ BODY
    /* font-family: "PT Sans", Arial, Helvetica, sans-serif; */
 /* font-family : 'Oxygen', Verdana, Arial, Sans-serif; */
 font-family: 'Raleway', sans-serif;
-   color : #494949;
+   color : #03030;
 	 font-size: 100%;
 background-color : #FFF;
 	 LINE-HEIGHT: 1.3em;
-   margin: 10px auto;
+   margin: 0px auto;
    }
 a img {
 	border-bottom:none
@@ -62,7 +62,8 @@ hr {
 }
 
 #grad1 {
-    padding: 1rem;
+	  margin-top: 0px;
+    padding: 3em;
     background: #3e4468; /* For browsers that do not support gradients */
     background: linear-gradient(-90deg, #323c91, #655159); /* Standard syntax (must be last) */
     vertical-align: middle;
@@ -75,8 +76,6 @@ hr {
 
 }
 #grad1 h1{
-margin-top: 1rem;
-margin-bottom : 1rem;
 font-size: 3em;
 text-align: center;
 }
