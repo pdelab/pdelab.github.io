@@ -1,15 +1,15 @@
 a {
 	/* color : #d7d7d7;*/
-color : #323c91;
+color : #414156;
 	text-decoration: none;
-	border-bottom: 0px dotted #323c91;
+	border-bottom: 0px dotted #414156;
 }
 a:hover {
 	/* background: #d7d7d7;
 	color: #363532;*/
 	/* color: #FFF;*/
 /* color : #4080bf;*/
-	border-bottom: 1.2px solid #323c91;
+	border-bottom: 1.2px solid #414156;
 }
 BODY
    {
@@ -65,12 +65,13 @@ hr {
 	  margin-top: 0px;
     padding: 3em;
     background: #3e4468; /* For browsers that do not support gradients */
-    background: linear-gradient(-90deg, #323c91, #655159); /* Standard syntax (must be last) */
+    background: linear-gradient(90deg, #414156, #655159); /* Standard syntax (must be last) */
     vertical-align: middle;
     color: #FFF;
-		-moz-border-radius: 5px;
+		/* -moz-border-radius: 5px;
 		-webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
-		-moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+		-moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px; */
+		border-bottom: 1rem solid #9b9cc5;
 		width: 100%;
 		margin:auto;
 
@@ -81,49 +82,12 @@ text-align: center;
 }
 
 
-#doccode {
-	padding-left:2em;
-}
-
-#doccode mark {
-    background-color: #b8d3ef;
-		padding: 5px;
-		margin-bottom: 5px;
-		display:inline-block;
-}
-
-section button {
-  margin: 0 auto;
-  font-size: 1.2rem;
-  padding: 0.5rem 1.5rem;
-  display: block;
-	background-color: rgba(255,255,255,0.2);
-	color : #FFF;
-  border: 1px solid rgba(48,48,48,0.6);
-  -webkit-border-radius: 3px;
-  border-radius: 6px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-	float: center;
-
-}
-
-section button:hover {
-  background-color: rgba(255,255,255,0.3);
-	/* background-color: rgba(50,60,145,0.8); */
-	color : #000;
-	cursor:pointer;
-}
-
 .alignleft {
 	float: left;
 }
 .alignright {
 	float: right;
 }
-
-
 
 .nav-buttons {
 	    /* float: right; */
@@ -135,7 +99,7 @@ section button:hover {
 
 
 .button {
-    background-color: #655159;
+    background-color: #414156;
     border: none;
     padding: 15px 32px;
     text-align: center;
@@ -149,6 +113,6 @@ section button:hover {
 }
 
 .button:hover{
-    background-color: #323c91;
+    background-color: #9b9cc5;
 		color: #FFF;
 }
