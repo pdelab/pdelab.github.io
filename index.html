@@ -40,11 +40,6 @@
   </div> -->
 <i> Solving Poisson-Nernst-Planck coupled with Navier-Stokes Solver </i>
 <br>
-<br>
-<section>
-<!-- <a href="https://github.com/thepnpsolver/modular-pnp"><button id="js-trigger-overlay" type="button">
-  View on Github</button></a>
-</section> -->
 
 </div>
 
@@ -57,15 +52,24 @@
 <br>
 <br>
 
-This repository focuses on solver the Poisson-Nernst-Planck coupled with Navier-Stokes Solver
-to model moving charges.
+We are developing solvers for simulating charge-transport systems with an arbitrary number of charge-carrying species.
+These systems are modeled by the Poisson-Nernst-Planck (PNP) equations with the possibility of coupling to the Navier-Stokes (NS) equation to simulate electrokinetic phenomena.
+<br><br>
+The solver use continuous piecewise linear finite elements for the PNP system, and div-conforming (discontinuous) finite elements for the NS system.
+The nonlinearities of the system are handled by implementing a monolithic Newton approach of the entire PNP (and NS) system.
+The linearized systems are stabilized by an edge-averaged finite element (EAFE) approximation.
+<br><br>
+This packages are based on the FEniCS package for discretizing the differential equations. This permits the use of any compatible linear algebra solver for solving the resulting linear system of equations.
 <br>
 <br>
-We have two repositories:
-<ul>
-  <li> <a href="https://github.com/thepnpsolver/pypnp"> PyPNP</a>: which is a code written in Python </li>
-  <li> <a href="https://github.com/thepnpsolver/modular-pnp"> Modular-pnp</a>: which is a code written in C++ </li>
-</ul>
+We have two repositories/solver avaible on Gitub, one in Python and the other in C++:
+
+
+<div class="nav-buttons">
+<a href="https://github.com/thepnpsolver/pypnp"><button class="button">PyPNP (Python)</button></a>
+<a href="https://github.com/thepnpsolver/modular-pnp"><button class="button"> Modular-pnp (C++)</button></a>
+</div>
+
 
 <!-- <p align="center"><img src="mesh.png" style="float:right" alt="Smiley face" align="middle" width="25%" height="25%"></p> -->
 
