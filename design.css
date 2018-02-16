@@ -27,14 +27,15 @@ a img {
 	border-bottom:none
 	}
 h2, h1 {
-	color: #03030;
+	color: #000;
 	}
 #container {
 	width: 50em;
 	margin: auto;
 }
 #top {
-text-align: center; }
+text-align: center;
+}
 #top a {
     color:  #336699;
     border-bottom: 0px dotted #336699;
@@ -64,14 +65,18 @@ hr {
 #grad1 {
 	  margin-top: 0px;
     padding: 3em;
-    background: #3e4468; /* For browsers that do not support gradients */
-    background: linear-gradient(90deg, #414156, #655159); /* Standard syntax (must be last) */
+
+		background: #757F9A;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
     vertical-align: middle;
-    color: #FFF;
+    color: #000;
 		/* -moz-border-radius: 5px;
 		-webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
 		-moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px; */
-		border-bottom: 1rem solid #9b9cc5;
+		border-bottom: 1rem solid #3b3e44;
 		width: 100%;
 		margin:auto;
 
@@ -99,7 +104,7 @@ text-align: center;
 
 
 .button {
-    background-color: #414156;
+    background-color: #757F9A;
     border: none;
     padding: 15px 32px;
     text-align: center;
@@ -113,6 +118,6 @@ text-align: center;
 }
 
 .button:hover{
-    background-color: #9b9cc5;
-		color: #FFF;
+    background-color: #D7DDE8;
+		color: #000;
 }
