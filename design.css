@@ -17,7 +17,7 @@ BODY
    /* font-family: "PT Sans", Arial, Helvetica, sans-serif; */
 /* font-family : 'Oxygen', Verdana, Arial, Sans-serif; */
 font-family: 'Raleway', sans-serif;
-   color : #03030;
+   color : #3b3e44;
 	 font-size: 100%;
 background-color : #FFF;
 	 LINE-HEIGHT: 1.3em;
@@ -27,7 +27,9 @@ a img {
 	border-bottom:none
 	}
 h2, h1 {
-	color: #000;
+	color: #646b7e;
+	text-align: center;
+	font-size: 8em;
 	}
 #container {
 	width: 50em;
@@ -64,7 +66,7 @@ hr {
 
 #grad1 {
 	  margin-top: 0px;
-    padding: 3em;
+    padding: 2em;
 
 		background: #757F9A;  /* fallback for old browsers */
 		background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
@@ -104,7 +106,7 @@ text-align: center;
 
 
 .button {
-    background-color: #757F9A;
+    background-color: #656d80;
     border: none;
     padding: 15px 32px;
     text-align: center;
@@ -118,6 +120,6 @@ text-align: center;
 }
 
 .button:hover{
-    background-color: #D7DDE8;
+    background-color: #98a1bc;
 		color: #000;
 }
