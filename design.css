@@ -1,15 +1,15 @@
 a {
 	/* color : #d7d7d7;*/
-color : #414156;
+color : #ba9077;
 	text-decoration: none;
-	border-bottom: 0px dotted #414156;
+	border-bottom: 0px dotted #ba9077;
 }
 a:hover {
-	/* background: #d7d7d7;
-	color: #363532;*/
+	/* background: #d7d7d7; */
+	color: #6ba280;
 	/* color: #FFF;*/
 /* color : #4080bf;*/
-	border-bottom: 1.2px solid #414156;
+	border-bottom: 1.2px solid #6ba280;
 }
 BODY
    {
@@ -17,20 +17,30 @@ BODY
    /* font-family: "PT Sans", Arial, Helvetica, sans-serif; */
 /* font-family : 'Oxygen', Verdana, Arial, Sans-serif; */
 font-family: 'Raleway', sans-serif;
-   color : #3b3e44;
+   color : #55515c;
 	 font-size: 100%;
-background-color : #FFF;
+background-color : #feffff;
 	 LINE-HEIGHT: 1.3em;
    margin: 0px auto;
    }
 a img {
-	border-bottom:none
+	border-bottom:none;
 	}
-h2, h1 {
-	color: #646b7e;
+h1 {
+	color: #584b4f;
 	text-align: center;
-	font-size: 8em;
+	font-size: 6em;
 	}
+h2 {
+	color: #584b4f;
+		text-align: center;
+		font-size: 1.2em;
+		font-style: italic;
+		}
+h3 {
+	color: #584b4f;
+	font-size: 2em;
+}
 #container {
 	width: 50em;
 	margin: auto;
@@ -38,15 +48,7 @@ h2, h1 {
 #top {
 text-align: center;
 }
-#top a {
-    color:  #336699;
-    border-bottom: 0px dotted #336699;
-    font-weight: bold;
-    }
-#top a:hover {
-	color: #4080bf;
-    border-bottom: 0px solid #4080bf;
-    }
+
 
 hr {
   border-color: #000;
@@ -66,11 +68,12 @@ hr {
 
 #grad1 {
 	  margin-top: 0px;
-    padding: 2em;
+    padding: 1em;
 
-		background: #757F9A;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: #daad86;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #a48068 ##daad86);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #ba9077, #daad86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 
     vertical-align: middle;
@@ -78,14 +81,10 @@ hr {
 		/* -moz-border-radius: 5px;
 		-webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
 		-moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px; */
-		border-bottom: 1rem solid #3b3e44;
+		border-bottom: 0.5rem solid #584b4f;
 		width: 100%;
 		margin:auto;
 
-}
-#grad1 h1{
-font-size: 3em;
-text-align: center;
 }
 
 
@@ -106,9 +105,9 @@ text-align: center;
 
 
 .button {
-    background-color: #656d80;
+    background-color: #444255;
     border: none;
-    padding: 15px 32px;
+    padding: 1rem 1rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -117,9 +116,10 @@ text-align: center;
     cursor: pointer;
 		border-radius: 2px;
 		color: #FFF;
+		width: 11em;
 }
 
 .button:hover{
-    background-color: #98a1bc;
+    background-color: #b07954;
 		color: #000;
 }
