@@ -5,7 +5,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-<link rel="stylesheet" type="text/css" href="design.css?v=1">
+<link rel="stylesheet" type="text/css" href="design.css?v=2">
 <link rel="stylesheet" type="text/css" href="atelier-lakeside-light.css">
 
 
@@ -60,12 +60,56 @@ The linearized systems are stabilized by an edge-averaged finite element (EAFE) 
 We are also developing a <a href="https://github.com/thepnpsolver/pyeafe">PyEAFE</a> module. PyEAFE is a python implementation of the EAFE approximation for linear convection-diffusion-reaction equations with PDE finite coefficients based on the Dolfin software package. For coupled PDEs and nonlinear problems, helper methods exist in the module that allow users to define the PDE coefficients in terms of finite element functions and their derivatives; this is usefule for applying EAFE approximations to linearized systems resulting from a Newton iteration scheme or solving weakly coupled differential equations.
 <br><br>
 All our codes are available on Gitub:
+<br><br>
+
+
+<div class="row">
+  <div class="column">
+
+      <div id="no-overflow">
+       <img src="Python-logo-notext.svg" class="img-left" style="width:2em;">
+      <p> <b> PyPNP:</b><br>
+        Solver written in Python to simulate the Poisson-Nernst-Planck equations.<br>
+        <a class="button-link" href="https://github.com/thepnpsolver/pypnp">
+          <!-- <img style="vertical-align:middle" src="https://placehold.it/60x60">class="button-link" -->
+        <!-- <span style="">Works.</span> -->
+          <button class="button"><img src="Octicons-mark-github.svg"  style="width:1.5em;vertical-align:middle">
+            Source Code</button></a>
+      </p>
+    </div>
+</div>
+  <div class="column">
+  <div id="no-overflow">
+      <img src="Python-logo-notext.svg" class="img-left" style="width:2em;">
+      <p> <b> PyEAFE:</b><br>
+       Python module for EAFE discretization.<br><br>
+       <a class="button-link" href="https://github.com/thepnpsolver/pyeafe"><button class="button">
+         <img src="Octicons-mark-github.svg"  style="width:1.5em;vertical-align:middle">Source Code</button></a>
+      </p>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="column">
+      <div id="no-overflow">
+        <img src="ISO_C++_Logo.svg" class="img-left" style="width:2em;">
+        <p> <b> Modular PNP:</b><br>
+         Solver written in C++ and using the FASP library as a linear solver.<br>
+         <a class="button-link" href="https://github.com/thepnpsolver/modular-pnp">
+           <button class="button">
+        <img src="Octicons-mark-github.svg"  style="width:1.5em;vertical-align:middle">
+             Source Code</button></a>
+        </p>
+      </div>
+    </div></div>
+
+
 
 
 <!-- <div class="nav-buttons"> -->
 <!-- </div> -->
 
-<table style="text-align: left; border-collapse:separate; border-spacing:2em;">
+<!-- <table style="text-align: left; border-collapse:separate; border-spacing:2em;">
   <tr>
     <td><b>PyPNP:</b></td>
     <td>Solver written in Python to simulate the Poisson-Nernst-Planck equations.<br>
@@ -81,7 +125,7 @@ All our codes are available on Gitub:
     <td> Python module for EAFE discretization.<br>
     <a href="https://github.com/thepnpsolver/pyeafe">Github Repository</a>, &nbsp; <a href="https://github.com/thepnpsolver/pyeafe/wiki">Documentation</a></td>
   </tr>
-</table>
+</table> -->
 
 
 
@@ -100,14 +144,18 @@ the electrokinetic system is described by
 				\nabla \cdot \vec u	&= 0,	\label{electrokinetic incompressibility}
 \end{align}
 in $\Omega\times(0,T]$.
-For the viscosity term the symmetrized gradient is used, $\varepsilon(\vec u) = \frac12(\nabla \vec u + (\nabla \vec u)^T)$. Notice that when $\epsilon$ is small, $\nabla \phi$ is large and a boundary layer appears.
+For the viscosity term the symmetrized gradient is used, $\varepsilon(\vec u) = \frac12(\nabla \vec u + (\nabla \vec u)^T)$.
+ Notice that when $\epsilon$ is small, $\nabla \phi$ is large and a boundary layer appears.
 
-The main issue with the electrokinetic model is that the usual solvers do not work. For example, we found that decoupling the the two systems PNP and NS and applying Gauss-Seidel method does not work, therefore we keep the system coupled and developed our own block preconditioner for the whole system.
+The main issue with the electrokinetic model is that the usual solvers do not work. For example, we found that decoupling
+the the two systems PNP and NS and applying Gauss-Seidel method does not work, therefore we keep the system coupled and developed our own block preconditioner for the whole system.
 <br>
 <br>
-An interesting experiment on the electrokinetic model is observing the effect of an electric field on the motion of a charged colloid that is suspended in an electrolytic fluid.
+An interesting experiment on the electrokinetic model is observing the effect of an electric field on the motion of a
+charged colloid that is suspended in an electrolytic fluid.
 We consider  sodium chloride solution in a cube with the charged colloid in the middle.
-We induce a voltage-drop $\delta V$, which is the difference between $\phi$ on the left and the right,  and enforce concentrations of the moving charges on two opposite faces of the exterior boundary.
+We induce a voltage-drop $\delta V$, which is the difference between $\phi$ on the left and the right,
+and enforce concentrations of the moving charges on two opposite faces of the exterior boundary.
 
 <table width="100%" border="0" cellpadding="5">
 <tr>
