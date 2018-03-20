@@ -154,9 +154,22 @@ in $\Omega\times(0,T]$.
 For the viscosity term the symmetrized gradient is used, $\varepsilon(\vec u) = \frac12(\nabla \vec u + (\nabla \vec u)^T)$.
  Notice that when $\epsilon$ is small, $\nabla \phi$ is large and a boundary layer appears.
 
-The main issue with the electrokinetic model is that the usual solvers do not work. For example, we found that decoupling
-the the two systems PNP and NS and applying Gauss-Seidel method does not work, therefore we keep the system coupled and developed our own block preconditioner for the whole system.
+<!-- The main issue with the electrokinetic model is that the usual solvers do not work. For example, we found that decoupling
+the the two systems PNP and NS and applying Gauss-Seidel method does not work, therefore we keep the system coupled and developed our own block preconditioner for the whole system. -->
 <br>
+<br>
+<center><img src="mesh-progression.png" width="90%"><br>
+  Mesh adaptivity can be used to resolve boundary layers, as evidenced by this figure depicting the
+  progression of the electrostatic potential.
+</center>
+<br>
+<center><img src="final-adapt.png" width="90%"><br>
+  A simple PNP system with an electric field applied across the domain. Charges accumulate near
+  the boundary.
+</center>
+<br>
+
+
 <br>
 An interesting experiment on the electrokinetic model is observing the effect of an electric field on the motion of a
 charged colloid that is suspended in an electrolytic fluid.
