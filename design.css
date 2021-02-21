@@ -9,20 +9,36 @@ a:hover {
 	color: #6ba280;
 	/* color: #FFF;*/
 /* color : #4080bf;*/
-	border-bottom: 1.2px solid #6ba280;
+	border-bottom: 3px solid #6ba280;
 }
-BODY
-   {
-   /* font-family: Nimbus Sans L, Arial, FreeSans ; */
-   /* font-family: "PT Sans", Arial, Helvetica, sans-serif; */
-/* font-family : 'Oxygen', Verdana, Arial, Sans-serif; */
-font-family: 'Raleway', sans-serif;
-   color : #55515c;
-	 font-size: 100%;
-background-color : #feffff;
-	 LINE-HEIGHT: 1.3em;
-   margin: 0px auto;
-   }
+
+html, html a {
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 10px 1px 1px rgba(0,0,0,0.004);
+  }
+
+
+  body {
+	padding:0px 0 20px 0px;
+	margin: 0px;
+	font-family: 'Raleway', sans-serif;
+	color:#55515c;
+	
+	
+
+	background: #feffff;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	
+
+  
+	font-size: 17px; 
+	font-weight: 500; 
+	line-height: 30px; 
+
+  }
+
+   
 a img {
 	border-bottom:none;
 	}
@@ -46,9 +62,11 @@ h4 {
 	font-size: 1em;
 	margin-top: 0px;
 }
-#container {
-	width: 50em;
-	margin: auto;
+
+
+.container {
+	max-width: 55em !important;
+	/* margin: auto; */
 }
 #top {
 text-align: center;
@@ -71,26 +89,7 @@ hr {
     clear: both;
 }
 
-#grad1 {
-	  margin-top: 0px;
-    padding: 1em;
 
-		background: #daad86;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to right, #a48068 #daad86);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #ba9077, #daad86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
-    vertical-align: middle;
-    color: #000;
-		/* -moz-border-radius: 5px;
-		-webkit-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
-		-moz-box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px; */
-		border-bottom: 0.5rem solid #584b4f;
-		width: 100%;
-		margin:auto;
-
-}
 
 
 .alignleft {
